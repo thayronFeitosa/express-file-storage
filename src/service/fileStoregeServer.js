@@ -33,7 +33,7 @@ fileStoregeServer.patch('/upload', upload.single('files'), async (request, respo
     /**
      * é feito uma validação para verificar se o arquivo contem na pasta tmp
      */
-    const caminho = path.join(uploadConfig.directory, filename)
+    const caminho = path.join(uploadConfig.directory, 'filename')
     // const existes = await fs.promises.open
 
    const existes =  fs.existsSync(caminho);
