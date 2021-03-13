@@ -21,7 +21,7 @@
 
 <h2>Banco de dados para testar</h2>
 
-```
+```js
 CREATE TABLE files (
   id INT AUTO_INCREMENT NOT NULL, 
   name VARCHAR (200),
@@ -40,7 +40,7 @@ CREATE TABLE files (
 Para que o express consiga manipular e entender os arquivos do multipart/form-data e necessário criar um middleware que nesse exemplo foi utilizado a biblioteca já criada o <a href="https://www.w3schools.com/tags/att_a_href.asp">multer</a> 
 </br>
 
-```
+```js
 const multer = require('multer');
 const path = require('path');
 const crypto = require("crypto");
@@ -64,7 +64,7 @@ module.exports = {
 A cima podemos ver uma configuração simples de um middleware multer onde precisamdo de 2 argumentos o <strong> destination </strong> onde vai ser armazenar os arquivos enviados e o <strong>filename</strong> que será como o arquivo vai se chamar na hora de for salvo.<br>
 <strong>Filename</strong> e uma função que espera 3 argumentos o request, file e uma função callback. </br>
 A regra que utilizamos foi somente criar um hash random de 10 bytes e concatenar com o nome original, assim caso seja enviado o arquivos com o mesmo nome não e feito e duplicado o arquivo. Depois de renomear o arquivo e chamado a função callback que espera um erro e o nome do arquivo.
-```
+```js
 	return callback(null, fileName);
 ```
 No primerio argumento foi passado null pois não ocorreu erro e o segundo o nome novo do arquivo.
@@ -76,7 +76,7 @@ No primerio argumento foi passado null pois não ocorreu erro e o segundo o nome
   Depois de fazer todos os passos e somente pegar os dados necessário para gravar no banco de dados, pois as configurações acima somente gravar os arquivos no servidor. 
 </br>
 
-```
+```js
   const routes = require('express').Router();
   const multer = require('multer');
   const multerConfig = require('./config/multer');
@@ -102,7 +102,7 @@ No primerio argumento foi passado null pois não ocorreu erro e o segundo o nome
 Agora e a parte mais simples da aplicação aonde colocamos o middleware para que a rota possa entender o multipart/form-data e pegar os dados que precisamos para gravar no banco de dados.</br>
 Precisamos importar o multer e o multerConfig que criamos, apos isso e somente colocar o multer como middleware. Ele esperar um argumento e vamos passar o nosso multerConfig de depois valos colocar ele como "single" pois vamos passar uma arquivo de cada vez.
 
-```
+```js
   const dataurtl = process.env.APP_URL;
   const data = {
     name,
@@ -116,7 +116,7 @@ Podemos ver acima que a url estamos passando uma variavel de anbiente que tem o 
 
 Para que seja possivel enviar os arquivos de volta para o cliente precisamos usar o express.static.
 
-```
+```js
 require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
