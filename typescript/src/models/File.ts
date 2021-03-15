@@ -19,11 +19,11 @@ class File {
   public keyName: string;
 
   @Column()
-  public create_at: Date;
+  public createAt: Date;
 
-  @OneToOne(type => User, user => user.id)
+  @OneToOne(type => User)
   @JoinColumn()
-  userId : User;
+  user : User;
 
 }
 
