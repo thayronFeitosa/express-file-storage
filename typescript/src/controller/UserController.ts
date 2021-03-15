@@ -9,9 +9,7 @@ class UserController {
 
       const { name, lastName, email, cpf, password } = request.body;
       const usersRepository = getCustomRepository(UserRepository);
-
-      console.log(request.body);
-
+      
       const userAlreadyExistsEmail = await usersRepository.findOne({ email: email });
       const userAlreadyExistsName = await usersRepository.findOne({ email: email });
 
@@ -31,7 +29,7 @@ class UserController {
       return response.status(201).json(user);
 
     } catch (error) {
-      return response.status(400).json('asdf');
+      return response.status(400).json({error: error.message});
     }
   }
 }
