@@ -1,4 +1,4 @@
-import { Column, Entity, JoinTable, ManyToMany, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { File } from './File';
 
 
@@ -25,8 +25,7 @@ class User {
   @Column()
   public create_at: Date;
 
-  @OneToOne(type => File, user => User )
-  @JoinTable()
+  @OneToOne(type => File)
   file: File
 
 }

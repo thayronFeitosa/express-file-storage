@@ -1,6 +1,6 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm";
+import {MigrationInterface, QueryRunner, Table, TableForeignKey} from "typeorm";
 
-export class image1615643081548 implements MigrationInterface {
+export class migration2021031419Files1615828794362 implements MigrationInterface {
 
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
@@ -48,18 +48,18 @@ export class image1615643081548 implements MigrationInterface {
             name: "userId",
             type: 'int',
             isNullable: false
-            
+
           },
 
         ]
-      }), );
+      }));
 
-    // await queryRunner.createForeignKey("file", new TableForeignKey({
-    //   columnNames: ["userId"],
-    //   referencedColumnNames: ["id"],
-    //   referencedTableName: "users",
-    //   // onDelete: "CASCADE"
-    // }));
+    await queryRunner.createForeignKey("file", new TableForeignKey({
+      columnNames: ["userId"],
+      referencedColumnNames: ["id"],
+      referencedTableName: "users",
+      onDelete: "CASCADE"
+    }));
   }
 
 

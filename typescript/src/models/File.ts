@@ -22,7 +22,8 @@ class File {
   public create_at: Date;
 
   @OneToOne(type => User, user => user.id)
-  user: User;
+  @JoinColumn()
+  userId : User;
 
 }
 

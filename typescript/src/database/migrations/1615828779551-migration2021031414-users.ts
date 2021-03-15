@@ -1,7 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class users1615644162382 implements MigrationInterface {
-
+export class migration2021031414Users1615828779551 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
@@ -18,41 +17,41 @@ export class users1615644162382 implements MigrationInterface {
             name: "name",
             type: "varchar",
             length: "100",
-            isNullable:  false,
-            
+            isNullable: false,
+
           },
           {
             name: "lastName",
             type: "varchar",
             length: "100",
-            isNullable:  false,
+            isNullable: false,
           },
           {
             name: "email",
             type: "varchar",
             length: "100",
-            isNullable:  false,
+            isNullable: false,
             isUnique: true
           },
           {
             name: "cpf",
             type: "varchar",
             length: "11",
-            isNullable:  false,
+            isNullable: false,
             isUnique: true
           },
           {
             name: "password",
             type: "varchar",
-            length: "200",
-            isNullable:  false,
+            length: "300",
+            isNullable: false,
           },
           {
             name: "create_at",
             type: "date",
-            isNullable:  false,
+            isNullable: false,
           }
-        
+
         ]
       })
     );
