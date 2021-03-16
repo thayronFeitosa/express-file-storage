@@ -40,6 +40,12 @@ export class migration2021031419Files1615828794362 implements MigrationInterface
             isNullable: false
           },
           {
+            name: "tipeFile",
+            type: "varchar",
+            length: "100",
+            isNullable:false,
+          },
+          {
             name: "createAt",
             type: "datetime",
             default: "now()"

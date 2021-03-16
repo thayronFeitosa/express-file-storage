@@ -21,6 +21,9 @@ class File {
   @Column()
   public createAt: Date;
 
+  @Column()
+  public tipeFile: string;
+
   @OneToOne(type => User)
   @JoinColumn()
   user : User;
